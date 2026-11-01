@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WIRE – Local Telegram</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">WIRE</div>
+        <div class="subtitle">Private Telegram</div>
+      </div>
+
+      <div class="bot-list" id="botList">
+        <!-- bots injected here -->
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="btnCreateBot" class="btn primary full">+ Create Bot</button>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat">
+      <header class="chat-header" id="chatHeader">
+        <div class="chat-title">Select or create a bot</div>
+        <div class="chat-subtitle"></div>
+      </header>
+
+      <div class="messages" id="messages">
+        <div class="empty-state">
+          <h2>WIRE</h2>
+          <p>Your private Telegram for trading bots.<br/>
+          Create a bot, then point your Python script to it.</p>
+        </div>
+      </div>
+
+      <footer class="composer" id="composer" style="display:none">
+        <div class="composer-inner">
+          <input type="text" id="input" placeholder="Type a command (e.g. /status)..." autocomplete="off" />
+          <button id="btnSend" class="btn primary">Send</button>
+        </div>
+        <div class="hint">Commands are delivered to your Python bot via real getUpdates</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Create Bot Modal -->
+  <div class="modal" id="modal" style="display:none">
+    <div class="modal-card">
+      <h2>Create a new bot</h2>
+      <p class="muted">Just like BotFather. You will receive a token.</p>
+      <label>Bot name</label>
+      <input type="text" id="botName" value="ABinance Trading Bot" />
+      <div class="modal-actions">
+        <button class="btn" id="btnCancel">Cancel</button>
+        <button class="btn primary" id="btnConfirmCreate">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

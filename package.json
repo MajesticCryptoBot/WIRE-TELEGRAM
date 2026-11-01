@@ -1,0 +1,49 @@
+{
+  "name": "wire",
+  "version": "1.0.0",
+  "description": "WIRE – Private Telegram for your trading bots",
+  "main": "desktop/main.cjs",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "desktop": "electron .",
+    "desktop:dev": "electron . --dev",
+    "build:win": "electron-builder --win --x64",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.wire.local",
+    "productName": "WIRE",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "desktop/**/*",
+      "data/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "WIRESetup-${version}-x64.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "WIRE"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  }
+}
